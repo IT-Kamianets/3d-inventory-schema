@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://3d.itkamianets.com/schemas/inventory.schema.json",
+  "title": "3D Inventory",
+  "description": "A container of stackable items: a backpack, a warehouse, a chest. Items are listed by total quantity; the slot layout follows from the slot count and stack limit.",
+  "type": "object",
+  "required": ["schemaVersion", "slots", "stackLimit", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "slots": { "type": "integer", "minimum": 1, "description": "Number of slots. Each holds one kind of item." },
+    "stackLimit": { "type": "integer", "minimum": 1, "description": "Most items of one kind in a single slot." },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["itemId", "quantity"],
+        "additionalProperties": false,
+        "properties": {
+          "itemId": { "type": "string", "minLength": 1, "description": "The game's own item id, for example wood." },
+          "quantity": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "slots": 3,
+  "stackLimit": 8,
+  "items": [
+    { "itemId": "wood", "quantity": 10 },
+    { "itemId": "iron", "quantity": 2 }
+  ]
+}
